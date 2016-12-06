@@ -12,6 +12,7 @@ module.exports = function(settings) {
   }, {});
 
   fbq('trackCustom', settings.name, options);
-  logger
-    .log('Queue command: fbq("trackCustom", "' + settings.name + '", ' + JSON.stringify(options) + ').');
+  logger.log(
+    'Queue command: fbq("trackCustom", "' + settings.name + '", ' + JSON.stringify(options) + ').'
+  );
 };
