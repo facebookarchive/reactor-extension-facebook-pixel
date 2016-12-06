@@ -13,6 +13,8 @@ See the [extension-support-sandbox README](https://git.corp.adobe.com/reactor/ex
 
 [status-url]: https://dtm-builder.ut1.mcps.adobe.net/job/extension-facebook-pixel
 [status-image]: https://dtm-builder.ut1.mcps.adobe.net/buildStatus/icon?job=extension-facebook-pixel
+[coverage-url]: https://dtm-builder.ut1.mcps.adobe.net/view/Reactor-Frontend/job/extension-facebook-pixel/lastStableBuild/cobertura/
+[coverage-image]: https://dtm-builder.ut1.mcps.adobe.net/view/Reactor-Frontend/job/extension-facebook-pixel/ws/badges/coverage.svg
 [npm-dependencies-url]: https://dtm-builder.ut1.mcps.adobe.net/view/Reactor-Frontend/job/extension-facebook-pixel/ws/dependencies.txt
 [npm-dependencies-image]: https://dtm-builder.ut1.mcps.adobe.net/view/Reactor-Frontend/job/extension-facebook-pixel/ws/badges/dependencies.svg
 [sandbox-url]: https://dtm-builder.ut1.mcps.adobe.net/view/Reactor-Frontend/job/extension-facebook-pixel/ws/sandbox/viewSandbox.html

@@ -24,7 +24,8 @@
     "package": "npm run build && reactor-packager",
     "sandbox": "webpack --watch --run-sandbox",
     "bootstrap": "reactor-sandbox init",
-    "ci-job": "npm run lint && npm run package"
+    "test": "reactor-testrunner",
+    "ci-job": "xvfb-run npm test -- --ci --browser chrome firefox ie9sg ie10sg ie11sg edgesg && npm run lint && npm run package"
   },
   "devDependencies": {
     "@reactor/extension-support-packager": "^2.3.3",
