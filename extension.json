@@ -1,0 +1,237 @@
+{
+  "name": "facebook-pixel",
+  "version": "1.0.0",
+  "description": "Facebook Pixel extension for Reactor.",
+  "displayName": "Facebook Pixel",
+  "iconPath": "resources/icons/facebook.svg",
+  "author": {
+    "name": "Adobe Systems",
+    "email": "DTM-Engineering@adobe.com"
+  },
+  "configuration": {
+    "viewPath": "extensionConfiguration.html",
+    "schema": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+
+      },
+      "additionalProperties": false,
+      "required": [
+        "pixelId"
+      ]
+    }
+  },
+  "actions": [
+    {
+      "name": "send-page-view",
+      "displayName": "Send Page View",
+      "libPath": "src/lib/actions/sendPageView.js",
+      "viewPath": "noConfig.html",
+      "schema": {}
+    },
+    {
+      "name": "send-initiate-checkout-event",
+      "displayName": "Send Initiate Checkout Event",
+      "libPath": "src/lib/actions/sendInitiateCheckoutEvent.js",
+      "viewPath": "noConfig.html",
+      "schema": {}
+    },
+    {
+      "name": "send-add-payment-info-event",
+      "displayName": "Send Add Payment Info Event",
+      "libPath": "src/lib/actions/sendAddPaymentInfoEvent.js",
+      "viewPath": "noConfig.html",
+      "schema": {}
+    },
+    {
+      "name": "send-search-event",
+      "displayName": "Send Search Event",
+      "libPath": "src/lib/actions/sendSearchEvent.js",
+      "viewPath": "sendSearchEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "searchString": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "searchString"
+        ]
+      }
+    },
+    {
+      "name": "send-view-content-event",
+      "displayName": "Send View Content Event",
+      "libPath": "src/lib/actions/sendViewContentEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-add-to-cart-event",
+      "displayName": "Send Add To Cart Event",
+      "libPath": "src/lib/actions/sendAddToCartEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "add-to-wishlist-event",
+      "displayName": "Add To Wishlist Event",
+      "libPath": "src/lib/actions/sendAddToWishlistEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-purchase-event",
+      "displayName": "Send Purchase Event",
+      "libPath": "src/lib/actions/sendPurchaseEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-lead-event",
+      "displayName": "Send Lead Event",
+      "libPath": "src/lib/actions/sendLeadEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-complete-registration-event",
+      "displayName": "Send Complete Registration Event",
+      "libPath": "src/lib/actions/sendCompleteRegistrationEvent.js",
+      "viewPath": "valueCurrency.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-custom-event",
+      "displayName": "Send Custom Event",
+      "libPath": "src/lib/actions/sendCustomEvent.js",
+      "viewPath": "sendCustomEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false,
+              "required": [
+                "key",
+                "value"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ]
+      }
+    }
+  ],
+  "viewBasePath": "dist/"
+}
