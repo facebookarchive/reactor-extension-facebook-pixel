@@ -14,7 +14,13 @@
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
       "properties": {
-
+        "pixelId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sendDataToAdobe": {
+          "type": "boolean"
+        }
       },
       "additionalProperties": false,
       "required": [
