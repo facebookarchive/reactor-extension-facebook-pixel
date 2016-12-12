@@ -10,7 +10,6 @@ const pkg = require('./package.json');
 
 const entries = {
   extensionConfiguration: './src/view/extensionConfiguration/index.js',
-  noConfig: './src/view/actions/noConfig/index.js',
   valueCurrency: './src/view/actions/valueCurrency/index.js',
   sendSearchEvent: './src/view/actions/sendSearchEvent/index.js',
   sendCustomEvent: './src/view/actions/sendCustomEvent/index.js'

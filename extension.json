@@ -33,21 +33,18 @@
       "name": "send-page-view",
       "displayName": "Send Page View",
       "libPath": "src/lib/actions/sendPageView.js",
-      "viewPath": "noConfig.html",
       "schema": {}
     },
     {
       "name": "send-initiate-checkout-event",
       "displayName": "Send Initiate Checkout Event",
       "libPath": "src/lib/actions/sendInitiateCheckoutEvent.js",
-      "viewPath": "noConfig.html",
       "schema": {}
     },
     {
       "name": "send-add-payment-info-event",
       "displayName": "Send Add Payment Info Event",
       "libPath": "src/lib/actions/sendAddPaymentInfoEvent.js",
-      "viewPath": "noConfig.html",
       "schema": {}
     },
     {
