@@ -1,6 +1,6 @@
 'use strict';
 
-var logger = require('logger');
+var logger = require('@turbine/logger');
 
 module.exports = function(settings) {
   var fbq = require('../helpers/getFbQueue');
