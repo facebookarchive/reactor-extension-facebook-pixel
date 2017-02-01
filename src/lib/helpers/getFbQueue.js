@@ -1,9 +1,9 @@
 'use strict';
 
-var window = require('window');
-var loadScript = require('load-script');
-var configuration = require('get-extension-configurations')()[0];
-var logger = require('logger');
+var window = require('@turbine/window');
+var loadScript = require('@turbine/load-script');
+var extensionSettings = require('@turbine/get-extension-settings')();
+var logger = require('@turbine/logger');
 var fbq;
 
 var createFbQueue = function() {
@@ -34,6 +34,6 @@ loadScript('https://connect.facebook.net/en_US/fbevents.js').then(function() {
   logger.error('Facebook Pixel Base Code could not be loaded.');
 });
 
-window.fbq('init', configuration.pixelId);
+window.fbq('init', extensionSettings.pixelId);
 
 module.exports = fbq;
