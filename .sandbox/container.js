@@ -54,15 +54,9 @@ module.exports = {
 
     'facebook-pixel': {
       displayName: 'Facebook Pixel',
-      configurations: [
-        {
-          id: 'ECa',
-          name: 'Extension Configuration Name',
-          settings: {
-            pixelId: '1192398254173793'
-          }
-        }
-      ]
+      settings: {
+        pixelId: '1192398254173793'
+      }
     }
   },
   propertySettings: {
