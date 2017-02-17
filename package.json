@@ -1,7 +1,7 @@
 {
   "name": "extension-facebookpixel",
   "version": "0.0.1",
-  "description": "Facebook Pixel extension for Composer",
+  "description": "Facebook Pixel extension",
   "author": {
     "name": "DTM",
     "email": "DTM-Engineering@adobe.com"
@@ -21,16 +21,16 @@
   "scripts": {
     "build": "webpack --production",
     "lint": "reactor-testrunner lint",
-    "package": "npm run build && composer-packager",
+    "package": "npm run build && reactor-packager",
     "sandbox": "webpack --watch --run-sandbox",
-    "bootstrap": "composer-sandbox init",
+    "bootstrap": "reactor-sandbox init",
     "test": "reactor-testrunner",
     "ci-job": "xvfb-run npm test -- --ci --browser chrome firefox ie9sg ie10sg ie11sg edgesg && npm run lint && npm run package"
   },
   "devDependencies": {
-    "@adobe/composer-packager": "^2.3.3",
-    "@adobe/composer-sandbox": "^7.8.5",
-    "@adobe/composer-turbine": "^18.0.0",
+    "@adobe/reactor-packager": "^2.3.3",
+    "@adobe/reactor-sandbox": "^7.8.5",
+    "@adobe/reactor-turbine": "^18.0.0",
     "@reactor/extension-support-testrunner": "^9.0.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",

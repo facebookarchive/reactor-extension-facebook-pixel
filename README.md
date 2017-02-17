@@ -1,6 +1,6 @@
 # extension-facebook-pixel
 
-This is the Facebook Pixel extension for Composer.
+This is the Facebook Pixel extension.
 
 ## Development Setup
 
