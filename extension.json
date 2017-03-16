@@ -5,8 +5,9 @@
   "displayName": "Facebook Pixel",
   "iconPath": "resources/icons/facebook.svg",
   "author": {
-    "name": "Adobe Systems",
-    "email": "DTM-Engineering@adobe.com"
+    "name": "Adobe Systems Incorporated",
+    "url": "http://adobe.com",
+    "email": "reactor@adobe.com"
   },
   "configuration": {
     "viewPath": "extensionConfiguration.html",
