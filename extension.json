@@ -1,7 +1,7 @@
 {
   "name": "facebook-pixel",
   "version": "1.0.0",
-  "description": "Facebook Pixel extension for Reactor.",
+  "description": "The Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising by understanding the actions people take on your website.",
   "displayName": "Facebook Pixel",
   "iconPath": "resources/icons/facebook.svg",
   "author": {
