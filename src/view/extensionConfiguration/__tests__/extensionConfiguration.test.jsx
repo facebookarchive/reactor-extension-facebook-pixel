@@ -43,8 +43,7 @@ describe('parameters', () => {
     pixelIdField.props.onChange('123456');
 
     expect(extensionBridge.getSettings()).toEqual({
-      pixelId: '123456',
-      sendDataToAdobe: undefined
+      pixelId: '123456'
     });
   });
 
