@@ -18,9 +18,6 @@
         "pixelId": {
           "type": "string",
           "minLength": 1
-        },
-        "sendDataToAdobe": {
-          "type": "boolean"
         }
       },
       "additionalProperties": false,
