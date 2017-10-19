@@ -1,7 +1,5 @@
 'use strict';
 
-var logger = require('@turbine/logger');
-
 module.exports = function(settings) {
   var fbq = require('../helpers/getFbQueue');
 
@@ -10,5 +8,5 @@ module.exports = function(settings) {
   };
 
   fbq('track', 'Search', options);
-  logger.log('Queue command: fbq("track", "Search", ' + JSON.stringify(options) + ').');
+  turbine.logger.log('Queue command: fbq("track", "Search", ' + JSON.stringify(options) + ').');
 };
