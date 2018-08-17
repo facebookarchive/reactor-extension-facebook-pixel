@@ -34,4 +34,4 @@ loadScript('https://connect.facebook.net/en_US/fbevents.js').then(function() {
 
 window.fbq('init', turbine.getExtensionSettings().pixelId);
 
-module.exports = fbq;
+module.exports = window.fbq;
