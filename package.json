@@ -29,9 +29,9 @@
     "ci-job": "xvfb-run npm test -- --ci --browser chrome firefox ie9sg ie10sg ie11sg edgesg && npm run lint && npm run package"
   },
   "devDependencies": {
-    "@adobe/reactor-packager": "^2.3.3",
-    "@adobe/reactor-sandbox": "^8.2.0",
-    "@adobe/reactor-turbine": "^25.1.0",
+    "@adobe/reactor-packager": "^3.0.1",
+    "@adobe/reactor-sandbox": "^10.0.4",
+    "@adobe/reactor-turbine": "^25.1.3",
     "@reactor/extension-support-testrunner": "^11.0.0",
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.7",
