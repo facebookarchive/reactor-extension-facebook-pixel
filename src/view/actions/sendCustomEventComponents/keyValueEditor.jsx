@@ -10,7 +10,7 @@ import {
 import Add from '@spectrum-icons/workflow/Add';
 import Delete from '@spectrum-icons/workflow/Delete';
 import { useFormContext, useFieldArray } from 'react-hook-form';
-import WrappedField from '../../components/wrappedField';
+import WrappedTextField from '../../components/wrappedTextField';
 
 const getEmptyRow = (keyProperty, valueProperty) => {
   const newRow = {};
@@ -70,7 +70,7 @@ export default ({
 
         return (
           <Flex key={item.id} direction="row" gap="size-100">
-            <WrappedField
+            <WrappedTextField
               name={`${formKeyName}[${index}][${keyProperty}]`}
               aria-label={`${formKeyName}[${index}][${keyProperty}]`}
               component={TextField}
@@ -79,7 +79,7 @@ export default ({
               defaultValue={item[keyProperty]}
             />
             <Content marginTop="size-65">=</Content>
-            <WrappedField
+            <WrappedTextField
               name={`${formKeyName}[${index}][${valueProperty}]`}
               aria-label={`${formKeyName}[${index}][${valueProperty}]`}
               component={TextField}

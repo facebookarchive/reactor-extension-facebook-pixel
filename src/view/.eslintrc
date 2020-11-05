@@ -21,7 +21,7 @@
     "jsx-a11y/label-has-associated-control": [
       2,
       {
-        "controlComponents": ["WrappedField"],
+        "controlComponents": ["WrappedTextField"],
         "depth": 1
       }
     ],

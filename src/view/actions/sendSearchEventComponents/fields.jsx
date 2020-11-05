@@ -1,10 +1,10 @@
 import React from 'react';
 import { TextField, Flex } from '@adobe/react-spectrum';
-import WrappedField from '../../components/wrappedField';
+import WrappedTextField from '../../components/wrappedTextField';
 
 export default () => (
   <Flex direction="column" gap="size-65">
-    <WrappedField
+    <WrappedTextField
       name="searchString"
       component={TextField}
       width="size-4600"

@@ -1,9 +1,9 @@
 import React from 'react';
 import { TextField } from '@adobe/react-spectrum';
-import WrappedField from '../../components/wrappedField';
+import WrappedTextField from '../../components/wrappedTextField';
 
 export default () => (
-  <WrappedField
+  <WrappedTextField
     name="name"
     component={TextField}
     width="size-4600"
