@@ -1,14 +1,31 @@
-# extension-facebook-pixel
+# reactor-extension-facebook-pixel
+
+[![Build Status](https://img.shields.io/github/workflow/status/Adobe-Marketing-Cloud-Activation/reactor-extension-facebook-pixel/ci?style=flat)](https://github.com/Adobe-Marketing-Cloud-Activation/reactor-extension-facebook-pixel/actions)
 
 This is the Facebook Pixel extension.
 
-## Development Setup
+## Get started
 
-### NOTE: This will only work if you are behind the Adobe firewall.
+To get started:
 
 1. Install [node.js](https://nodejs.org/).
-1. Clone this repository.
-1. After navigating into the project directory, install project dependencies by running `npm install`.
-1. See the `scripts` node within package.json for a list of scripts you may run using `npm run`.
+2. Clone the repository.
+3. After navigating into the project directory, install project dependencies by running `npm install`.
 
-See the [extension-support-sandbox README](https://git.corp.adobe.com/reactor/extension-support-sandbox/blob/master/README.md) and the [extension-support-testrunner README](https://git.corp.adobe.com/reactor/extension-support-testrunner/blob/master/README.md) for more information on how to build and test this project.
+### Scripts
+
+To run tests a single time, run the following command:
+
+`npm run test`
+
+To run tests continually while developing, run the following command:
+
+`npm run test:watch`
+
+To ensure your code meets our linting standards, run the following command:
+
+`npm run lint`
+
+To create a build, run the following command:
+
+`npm run build`

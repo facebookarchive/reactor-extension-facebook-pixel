@@ -2,117 +2,146 @@
 
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HTMLWebpackExternalsPlugin = require('html-webpack-externals-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
-const argv = require('yargs').argv;
 const webpack = require('webpack');
-const pkg = require('./package.json');
+const extension = require('./extension');
+const camelCase = require('camelcase');
+const capitalize = require('capitalize');
+const createEntryFile = require('./createEntryFile');
 
 const entries = {
-  extensionConfiguration: './src/view/extensionConfiguration/index.js',
-  valueCurrency: './src/view/actions/valueCurrency/index.js',
-  sendSearchEvent: './src/view/actions/sendSearchEvent/index.js',
-  sendCustomEvent: './src/view/actions/sendCustomEvent/index.js'
+  'babel-polyfill': 'babel-polyfill'
 };
+const plugins = [];
 
-const plugins = Object.keys(entries).map(chunkName => (
-  new HtmlWebpackPlugin({
-    chunks: [chunkName],
-    filename: chunkName + '.html',
-    template: 'src/view/template.html'
-  })
-));
+module.exports = (env) => {
+  // Each view becomes its own "app". These are automatically generated based on naming convention.
+  ['configuration', 'action'].forEach((type) => {
+    const typePluralized = type + 's';
+    const delegates =
+      type === 'configuration'
+        ? [extension['configuration']]
+        : extension[typePluralized];
 
-const reactVersion = pkg.dependencies['react'];
-const reactDOMVersion = pkg.dependencies['react-dom'];
+    delegates.forEach((itemDescriptor) => {
+      let itemNameCapitalized;
+      let chunkName;
 
-plugins.push(
-  new HTMLWebpackExternalsPlugin([
-    {
-      name: 'react',
-      var: 'React',
-      url: `//unpkg.com/react@${reactVersion}/dist/react${argv.production ? '.min' : ''}.js`
-    },
-    // If we load react from a CDN, we have to do the same for react-dom without janky business. :(
-    // https://github.com/webpack/webpack/issues/1275#issuecomment-176255624
-    {
-      name: 'react-dom',
-      var: 'ReactDOM',
-      url: `//unpkg.com/react-dom@${reactDOMVersion}/dist/react-dom${argv.production ? '.min' : ''}.js`
-    }
-  ])
-);
+      if (itemDescriptor.viewPath) {
+        if (type === 'configuration') {
+          itemNameCapitalized = 'Configuration';
+          chunkName = 'configuration/configuration';
+        } else {
+          const itemName = itemDescriptor.name;
+          const itemNameCamelized = camelCase(itemName);
+          itemNameCapitalized = capitalize(itemNameCamelized);
+          chunkName = `${itemDescriptor.viewPath.replace('.html', '')}`;
+        }
 
-if (argv.production) {
+        const entryPath = `./.entries/${chunkName}.js`;
+        createEntryFile(entryPath, itemNameCapitalized, chunkName);
+        entries[chunkName] = entryPath;
+
+        plugins.push(
+          new HtmlWebpackPlugin({
+            title: itemDescriptor.displayName || 'Configuration',
+            filename: `${chunkName}.html`,
+            template: 'src/view/template.html',
+            chunks: ['common', chunkName]
+          })
+        );
+      }
+    });
+  });
+
   plugins.push(
     new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV': JSON.stringify('production')
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      'process.env.SCALE_MEDIUM': 'true',
+      'process.env.SCALE_LARGE': 'false',
+      'process.env.THEME_LIGHT': 'false',
+      'process.env.THEME_LIGHTEST': 'true',
+      'process.env.THEME_DARK': 'false',
+      'process.env.THEME_DARKEST': 'false'
     })
   );
-}
 
-if (argv.runSandbox) {
-  // This allows us to run the sandbox after the initial build takes place. By not starting up the
-  // sandbox while simultaneously building the view, we ensure:
-  // (1) Whatever we see in the browser contains the latest view files.
-  // (2) The sandbox can validate our extension.json and find that the view files it references
-  // actually exist because they have already been built.
-  plugins.push(new WebpackShellPlugin({
-    onBuildEnd: ['./node_modules/.bin/reactor-sandbox']
-  }));
-}
-
-module.exports = {
-  entry: entries,
-  plugins: plugins,
-  output: {
-    path: 'dist/',
-    filename: '[name].js'
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        include: /src\/view/,
-        exclude: /__tests__/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015', 'stage-0']
-        }
-      },
-      {
-        test: /\.styl/,
-        include: /src\/view/,
-        loader: 'style-loader!css-loader!stylus-loader'
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx', 'styl'],
-    // Needed when npm-linking projects like coralui-support-react
-    // https://github.com/webpack/webpack/issues/784
-    fallback: path.join(__dirname, 'node_modules'),
-    // When looking for modules, prefer the node_modules within this project. An example where
-    // this is helpful: If this project requires in module X, we've npm linked module X and
-    // module X has its node_modules populated, and module X requires React, typically two
-    // copies of React would be bundled (one from this project's node_modules and one from
-    // module X's node_modules). By setting this root, module X will prefer the React in this
-    // project's node_modules, effectively de-duping React.
-    // https://github.com/webpack/webpack/issues/966
-    root: path.resolve(__dirname, 'node_modules')
-  },
-  stylus: {
-    use: [require('nib')()],
-    import: [
-      path.resolve('~nib/lib/nib/index'),
-      path.resolve('./src/view/units')
-    ]
+  if (env === 'sandbox') {
+    // This allows us to run the sandbox after the initial build takes place. By not starting up the
+    // sandbox while simultaneously building the view, we ensure:
+    // (1) Whatever we see in the browser contains the latest view files.
+    // (2) The sandbox can validate our extension.json and find that the view files it references
+    // actually exist because they have already been built.
+    plugins.push(
+      new WebpackShellPlugin({
+        onBuildEnd: ['./node_modules/.bin/reactor-sandbox']
+      })
+    );
   }
+
+  let minChunks = Math.round(Object.keys(entries).length / 4);
+  if (minChunks < 2) {
+    minChunks = 2;
+  }
+
+  return {
+    optimization: {
+      runtimeChunk: false,
+      splitChunks: {
+        cacheGroups: {
+          default: false,
+          commons: {
+            name: 'common',
+            chunks: 'all',
+            minChunks: minChunks
+          }
+        }
+      }
+    },
+    entry: entries,
+    plugins: plugins,
+    output: {
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].js',
+      chunkFilename: '[name].js'
+    },
+    module: {
+      rules: [
+        {
+          test: /\.jsx?$/,
+          include: /src\/view/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.js$/,
+          include: /\.entries/,
+          loader: 'babel-loader'
+        },
+        {
+          test: /\.styl/,
+          include: /src\/view/,
+          loader: 'style-loader!css-loader!stylus-loader'
+        },
+        {
+          test: /\.css/,
+          loaders: ['style-loader', 'css-loader']
+        },
+        {
+          test: /\.(jpe?g|png|gif)$/,
+          loader: 'file-loader'
+        },
+        {
+          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+
+          loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+        },
+        {
+          test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+          loader: 'file-loader'
+        }
+      ]
+    },
+    resolve: {
+      extensions: ['.js', '.jsx']
+    }
+  };
 };

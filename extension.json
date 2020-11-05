@@ -1,6 +1,6 @@
 {
   "name": "facebook-pixel",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "The Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising by understanding the actions people take on your website.",
   "displayName": "Facebook Pixel",
   "iconPath": "resources/icons/facebook.svg",
@@ -11,7 +11,7 @@
     "email": "reactor@adobe.com"
   },
   "configuration": {
-    "viewPath": "extensionConfiguration.html",
+    "viewPath": "configuration/configuration.html",
     "schema": {
       "$schema": "http://json-schema.org/draft-04/schema#",
       "type": "object",
@@ -22,9 +22,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [
-        "pixelId"
-      ]
+      "required": ["pixelId"]
     }
   },
   "actions": [
@@ -50,7 +48,7 @@
       "name": "send-search-event",
       "displayName": "Send Search Event",
       "libPath": "src/lib/actions/sendSearchEvent.js",
-      "viewPath": "sendSearchEvent.html",
+      "viewPath": "actions/sendSearchEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -61,16 +59,14 @@
           }
         },
         "additionalProperties": false,
-        "required": [
-          "searchString"
-        ]
+        "required": ["searchString"]
       }
     },
     {
       "name": "send-view-content-event",
       "displayName": "Send View Content Event",
       "libPath": "src/lib/actions/sendViewContentEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -91,7 +87,7 @@
       "name": "send-add-to-cart-event",
       "displayName": "Send Add To Cart Event",
       "libPath": "src/lib/actions/sendAddToCartEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -112,7 +108,7 @@
       "name": "add-to-wishlist-event",
       "displayName": "Add To Wishlist Event",
       "libPath": "src/lib/actions/sendAddToWishlistEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -133,7 +129,7 @@
       "name": "send-purchase-event",
       "displayName": "Send Purchase Event",
       "libPath": "src/lib/actions/sendPurchaseEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -154,7 +150,7 @@
       "name": "send-lead-event",
       "displayName": "Send Lead Event",
       "libPath": "src/lib/actions/sendLeadEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -175,7 +171,7 @@
       "name": "send-complete-registration-event",
       "displayName": "Send Complete Registration Event",
       "libPath": "src/lib/actions/sendCompleteRegistrationEvent.js",
-      "viewPath": "valueCurrency.html",
+      "viewPath": "actions/valueCurrency.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -196,7 +192,7 @@
       "name": "send-custom-event",
       "displayName": "Send Custom Event",
       "libPath": "src/lib/actions/sendCustomEvent.js",
-      "viewPath": "sendCustomEvent.html",
+      "viewPath": "actions/sendCustomEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -220,18 +216,13 @@
                 }
               },
               "additionalProperties": false,
-              "required": [
-                "key",
-                "value"
-              ]
+              "required": ["key", "value"]
             },
             "minItems": 1
           }
         },
         "additionalProperties": false,
-        "required": [
-          "name"
-        ]
+        "required": ["name"]
       }
     }
   ],
