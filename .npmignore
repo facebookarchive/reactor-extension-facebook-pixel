@@ -4,4 +4,6 @@ createEntryFile.js
 coverage
 jest.config.js
 webpack.config.js
+package-facebook-pixel-*.zip
+reactor-extension-facebook-pixel-*.tgz
 \.*
