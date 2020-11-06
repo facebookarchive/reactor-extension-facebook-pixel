@@ -29,3 +29,7 @@ To ensure your code meets our linting standards, run the following command:
 To create a build, run the following command:
 
 `npm run build`
+
+To create the extension package, run the following command:
+
+`npm run package`
