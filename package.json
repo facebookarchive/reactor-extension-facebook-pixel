@@ -22,6 +22,7 @@
     "build:watch": "webpack --mode=development --watch=true",
     "sandbox": "webpack --env sandbox --mode=development --watch=true",
     "package": "npm run build && npx @adobe/reactor-packager",
+    "prepack": "npm test && npm run build",
     "lint": "eslint 'src/**'",
     "format": "pretty-quick",
     "test": "jest --coverage",
