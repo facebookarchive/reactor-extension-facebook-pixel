@@ -85,7 +85,7 @@ export default ({
               marginStart="size-65"
               marginBottom="size-225"
               aria-label="Icon only"
-              onClick={openDataElementSelector(
+              onPress={openDataElementSelector(
                 supportDataElement,
                 name,
                 methods
