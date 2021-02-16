@@ -1,14 +1,13 @@
 {
-  "name": "facebook-pixel-extension",
-  "version": "1.0.1",
+  "name": "facebook-pixel-extension-adobe-launch",
+  "version": "1.1.1",
   "description": "The Facebook pixel is an analytics tool that allows you to measure the effectiveness of your advertising by understanding the actions people take on your website.",
   "displayName": "Facebook Pixel",
   "iconPath": "resources/icons/facebook.svg",
   "platform": "web",
   "author": {
     "name": "Facebook",
-    "url": "https://developers.facebook.com/support/",
-    "email": "test@test.com"
+    "url": "https://developers.facebook.com/support/"
   },
   "configuration": {
     "viewPath": "configuration/configuration.html",
