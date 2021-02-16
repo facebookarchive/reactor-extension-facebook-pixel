@@ -37,6 +37,11 @@ loadScript('https://connect.facebook.net/en_US/fbevents.js').then(
   }
 );
 
-window.fbq('init', turbine.getExtensionSettings().pixelId);
+window.fbq(
+  'init',
+  turbine.getExtensionSettings().pixelId,
+  {},
+  { agent: 'adobe_launch' }
+);
 
 module.exports = window.fbq;
