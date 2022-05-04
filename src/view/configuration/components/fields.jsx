@@ -13,5 +13,13 @@ export default () => (
       necessityIndicator="label"
       supportDataElement
     />
+    <WrappedTextField
+      name="eventId"
+      component={TextField}
+      width="size-4600"
+      label="Event ID"
+      necessityIndicator="label"
+      supportDataElement
+    />
   </Flex>
 );

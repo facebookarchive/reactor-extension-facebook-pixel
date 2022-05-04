@@ -18,6 +18,9 @@
         "pixelId": {
           "type": "string",
           "minLength": 1
+        },
+        "eventId": {
+          "type": "string"
         }
       },
       "additionalProperties": false,

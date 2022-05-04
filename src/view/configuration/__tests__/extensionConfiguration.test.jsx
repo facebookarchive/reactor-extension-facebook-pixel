@@ -35,7 +35,8 @@ const getFromFields = () => {
   const { queryByLabelText } = screen;
 
   return {
-    pixelIdInput: queryByLabelText(/pixel id/i)
+    pixelIdInput: queryByLabelText(/pixel id/i),
+    eventIdInput: queryByLabelText(/event id/i)
   };
 };
 
@@ -53,9 +54,11 @@ describe('Configuration view', () => {
       });
     });
 
-    const { pixelIdInput } = getFromFields();
+    const { pixelIdInput, eventIdInput } = getFromFields();
 
     expect(pixelIdInput.value).toBe('12345');
+    // test empty eventId
+    expect(eventIdInput.value).toBe('');
   });
 
   test('sets settings from form values', async () => {
@@ -67,14 +70,16 @@ describe('Configuration view', () => {
       });
     });
 
-    const { pixelIdInput } = getFromFields();
+    const { pixelIdInput, eventIdInput } = getFromFields();
 
     await act(async () => {
       inputOnChange(pixelIdInput, '123456');
+      inputOnChange(eventIdInput, '111111');
     });
 
     expect(extensionBridge.getSettings()).toEqual({
-      pixelId: '123456'
+      pixelId: '123456',
+      eventId: '111111'
     });
   });
 

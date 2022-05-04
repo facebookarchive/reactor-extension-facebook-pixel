@@ -17,7 +17,10 @@ module.exports = {
     {
       displayName: 'test library modules',
       testEnvironment: 'node',
-      modulePathIgnorePatterns: ['<rootDir>/src/view/']
+      modulePathIgnorePatterns: [
+        '<rootDir>/src/view/',
+        '<rootDir>/src/lib/actions/__tests__/setupTests.js'
+      ]
     },
     {
       displayName: 'lint',
