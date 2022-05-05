@@ -1,8 +1,9 @@
 export default (initInfo) => {
   const { settings } = initInfo;
-  const { pixelId = '' } = settings || {};
+  const { pixelId = '', eventId = '' } = settings || {};
 
   return {
-    pixelId
+    pixelId,
+    eventId
   };
 };

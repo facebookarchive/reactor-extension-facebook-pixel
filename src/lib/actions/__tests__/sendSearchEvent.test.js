@@ -2,18 +2,12 @@
 
 jest.mock('../../helpers/getFbQueue.js');
 
+var setupTests = require('./setupTests');
 var sendSearchEvent = require('../sendSearchEvent');
 var getFbQueue = require('../../helpers/getFbQueue.js');
 
 describe('Send Search Event module', function () {
-  beforeEach(function () {
-    global.turbine = { logger: { log: jest.fn() } };
-  });
-
-  afterEach(function () {
-    jest.clearAllMocks();
-    delete global.turbine;
-  });
+  setupTests.setup();
 
   test('add call to facebook queue', function () {
     sendSearchEvent({ searchString: 'search' });
@@ -21,14 +15,16 @@ describe('Send Search Event module', function () {
       'track',
       'Search',
       // eslint-disable-next-line camelcase
-      { search_string: 'search' }
+      { search_string: 'search' },
+      { eventID: setupTests.mockEventId }
     ]);
   });
 
   test('logs message to turbine', function () {
     sendSearchEvent({ searchString: 'search' });
     expect(turbine.logger.log.mock.calls[0]).toEqual([
-      'Queue command: fbq("track", "Search", {"search_string":"search"}).'
+      'Queue command: fbq("track", "Search", {"search_string":"search"})' +
+        ` with eventId: ${setupTests.mockEventId}.`
     ]);
   });
 });

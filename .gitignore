@@ -3,6 +3,7 @@ coverage
 test_results
 dist
 .sandbox
+.sandbox/**
 .entries
 package-facebook-pixel-*.zip
 google-analytics-edge*

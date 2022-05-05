@@ -1,1 +1,1 @@
-export default ({ pixelId }) => ({ pixelId });
+export default ({ pixelId, eventId }) => ({ pixelId, eventId });
