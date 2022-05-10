@@ -1,6 +1,6 @@
 {
   "name": "facebook-pixel-extension-adobe-launch",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Adobe Launch client side extension that uses the Facebook Pixel library to send website data to Facebook",
   "author": {
     "name": "Facebook",
@@ -88,7 +88,7 @@
     "stylus": "^0.54.8",
     "stylus-loader": "^4.2.0",
     "url-loader": "^4.1.1",
-    "webpack": "^4.44.2",
+    "webpack": "4.46.0",
     "webpack-cli": "^3.3.12",
     "webpack-shell-plugin": "^0.5.0",
     "yargs": "^16.1.0"
