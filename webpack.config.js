@@ -27,7 +27,7 @@ module.exports = (env) => {
       let itemNameCapitalized;
       let chunkName;
 
-      if (itemDescriptor.viewPath) {
+      if (itemDescriptor && itemDescriptor.viewPath) {
         if (type === 'configuration') {
           itemNameCapitalized = 'Configuration';
           chunkName = 'configuration/configuration';
@@ -92,7 +92,7 @@ module.exports = (env) => {
           commons: {
             name: 'common',
             chunks: 'all',
-            minChunks: minChunks
+            minChunks: Math.round(Object.keys(entries).length / 4)
           }
         }
       }
@@ -109,30 +109,62 @@ module.exports = (env) => {
         {
           test: /\.jsx?$/,
           include: /src\/view/,
-          loader: 'babel-loader'
+          exclude: /__tests__/,
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/react', '@babel/env'],
+            plugins: ['@babel/plugin-proposal-class-properties']
+          }
         },
         {
           test: /\.js$/,
           include: /\.entries/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/env']
+          }
         },
         {
           test: /\.styl/,
           include: /src\/view/,
-          loader: 'style-loader!css-loader!stylus-loader'
+          use: [
+            require.resolve('style-loader'),
+            {
+              loader: require.resolve('css-loader'),
+              options: {
+                importLoaders: 1
+              }
+            },
+            require.resolve('stylus-loader')
+          ]
         },
         {
           test: /\.css/,
-          loaders: ['style-loader', 'css-loader']
+          use: [
+            require.resolve('style-loader'),
+            {
+              loader: require.resolve('css-loader'),
+              options: {
+                importLoaders: 1
+              }
+            }
+          ]
         },
         {
           test: /\.(jpe?g|png|gif)$/,
           loader: 'file-loader'
         },
         {
-          test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-
-          loader: 'url-loader?limit=10000&mimetype=application/font-woff'
+            test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+            use: [
+                {
+                    loader: 'url-loader',
+                    options: {
+                        limit: 10000,
+                        mimetype : 'application/font-woff'
+                    }
+                }
+            ]
         },
         {
           test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
@@ -141,6 +173,9 @@ module.exports = (env) => {
       ]
     },
     resolve: {
+      alias: {
+        '@test-helpers': path.resolve(__dirname, 'src/view/__tests__/helpers')
+      },
       extensions: ['.js', '.jsx']
     }
   };
