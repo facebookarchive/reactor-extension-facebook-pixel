@@ -33,3 +33,7 @@ To create a build, run the following command:
 To create the extension package, run the following command:
 
 `npm run package`
+
+## License
+
+The code is released under the [Apache 2.0 license](LICENSE).
