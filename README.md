@@ -1,8 +1,8 @@
-# reactor-extension-facebook-pixel
+# reactor-extension-meta-pixel
 
-[![Build Status](https://img.shields.io/github/workflow/status/Adobe-Marketing-Cloud-Activation/reactor-extension-facebook-pixel/ci?style=flat)](https://github.com/Adobe-Marketing-Cloud-Activation/reactor-extension-facebook-pixel/actions)
+[![Build Status](https://img.shields.io/github/workflow/status/Adobe-Marketing-Cloud-Activation/reactor-extension-meta-pixel/ci?style=flat)](https://github.com/Adobe-Marketing-Cloud-Activation/reactor-extension-meta-pixel/actions)
 
-This is the Facebook Pixel extension.
+This is the Meta Pixel extension.
 
 ## Get started
 

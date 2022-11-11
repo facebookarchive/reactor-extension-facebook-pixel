@@ -30,10 +30,10 @@ if (!window.fbq) {
 
 loadScript('https://connect.facebook.net/en_US/fbevents.js').then(
   function () {
-    turbine.logger.log('Facebook Pixel Base Code was successfully loaded.');
+    turbine.logger.log('Meta Pixel Base Code was successfully loaded.');
   },
   function () {
-    turbine.logger.error('Facebook Pixel Base Code could not be loaded.');
+    turbine.logger.error('Meta Pixel Base Code could not be loaded.');
   }
 );
 

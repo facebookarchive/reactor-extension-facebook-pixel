@@ -1,9 +1,9 @@
 {
   "name": "facebook-pixel-extension-adobe-launch",
   "version": "1.1.3",
-  "description": "Adobe Launch client side extension that uses the Facebook Pixel library to send website data to Facebook",
+  "description": "Adobe Launch client side extension that uses the Meta Pixel library to send website data to Meta",
   "author": {
-    "name": "Facebook",
+    "name": "Meta",
     "url": "https://developers.facebook.com/support/"
   },
   "license": "ISC",
@@ -14,7 +14,7 @@
   "keywords": [
     "turbine",
     "extension",
-    "facebook pixel"
+    "meta pixel"
   ],
   "scripts": {
     "build": "rm -rf dist && webpack --mode production",

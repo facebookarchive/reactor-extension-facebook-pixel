@@ -3,7 +3,7 @@ export default (values) => {
 
   if (!values.pixelId) {
     errors.pixelId = {
-      message: 'Please specify your Facebook Pixel ID',
+      message: 'Please specify your Meta Pixel ID',
       type: 'required'
     };
   }
