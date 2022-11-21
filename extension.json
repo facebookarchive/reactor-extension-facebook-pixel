@@ -30,7 +30,7 @@
   "actions": [
     {
       "name": "send-page-view",
-      "displayName": "Send Page View",
+      "displayName": "Send Page View (deprecated)",
       "libPath": "src/lib/actions/sendPageView.js",
       "schema": {}
     },
@@ -38,13 +38,71 @@
       "name": "send-initiate-checkout-event",
       "displayName": "Send Initiate Checkout Event",
       "libPath": "src/lib/actions/sendInitiateCheckoutEvent.js",
-      "schema": {}
+      "viewPath": "actions/sendInitiateCheckoutEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "string",
+            "minLength": 1
+          },
+          "num_items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
     },
     {
       "name": "send-add-payment-info-event",
       "displayName": "Send Add Payment Info Event",
       "libPath": "src/lib/actions/sendAddPaymentInfoEvent.js",
-      "schema": {}
+      "viewPath": "actions/sendAddPaymentInfoEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
     },
     {
       "name": "send-search-event",
@@ -68,6 +126,7 @@
       "name": "send-view-content-event",
       "displayName": "Send View Content Event",
       "libPath": "src/lib/actions/sendViewContentEvent.js",
+      "viewPath": "actions/sendViewContentEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -77,6 +136,26 @@
             "minLength": 1
           },
           "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_type": {
             "type": "string",
             "minLength": 1
           }
@@ -88,6 +167,7 @@
       "name": "send-add-to-cart-event",
       "displayName": "Send Add To Cart Event",
       "libPath": "src/lib/actions/sendAddToCartEvent.js",
+      "viewPath": "actions/sendAddToCartEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -97,6 +177,22 @@
             "minLength": 1
           },
           "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_type" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
             "type": "string",
             "minLength": 1
           }
@@ -108,6 +204,7 @@
       "name": "add-to-wishlist-event",
       "displayName": "Add To Wishlist Event",
       "libPath": "src/lib/actions/sendAddToWishlistEvent.js",
+      "viewPath": "actions/sendAddToWishlistEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -117,6 +214,22 @@
             "minLength": 1
           },
           "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
             "type": "string",
             "minLength": 1
           }
@@ -128,6 +241,7 @@
       "name": "send-purchase-event",
       "displayName": "Send Purchase Event",
       "libPath": "src/lib/actions/sendPurchaseEvent.js",
+      "viewPath": "actions/sendPurchaseEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
@@ -139,6 +253,26 @@
           "currency": {
             "type": "string",
             "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_ids" : {
+            "type": "string",
+            "minLength": 1
+          },
+          "contents": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "num_items": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -148,11 +282,20 @@
       "name": "send-lead-event",
       "displayName": "Send Lead Event",
       "libPath": "src/lib/actions/sendLeadEvent.js",
+      "viewPath": "actions/sendLeadEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
         "properties": {
           "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
             "type": "string",
             "minLength": 1
           },
@@ -168,6 +311,176 @@
       "name": "send-complete-registration-event",
       "displayName": "Send Complete Registration Event",
       "libPath": "src/lib/actions/sendCompleteRegistrationEvent.js",
+      "viewPath": "actions/sendCompleteRegistrationEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content_name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-contact-event",
+      "displayName": "Send Contact Event",
+      "libPath": "src/lib/actions/sendContactEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-customize-product-event",
+      "displayName": "Send Custom Product Event",
+      "libPath": "src/lib/actions/sendCustomizeProductEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-donate-event",
+      "displayName": "Send Donate Event",
+      "libPath": "src/lib/actions/sendDonateEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-find-location-event",
+      "displayName": "Send Find Location Event",
+      "libPath": "src/lib/actions/sendFindLocationEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-schedule-event",
+      "displayName": "Send Schedule Event",
+      "libPath": "src/lib/actions/sendScheduleEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-start-trial-event",
+      "displayName": "Send Start Trial Event",
+      "libPath": "src/lib/actions/sendStartTrialEvent.js",
+      "viewPath": "actions/sendStartTrialEvent.html",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-submit-application-event",
+      "displayName": "Send Submit Application Event",
+      "libPath": "src/lib/actions/sendSubmitApplicationEvent.js",
+      "schema": {
+        "$schema": "http://json-schema.org/draft-04/schema#",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "currency": {
+            "type": "string",
+            "minLength": 1
+          }
+        },        "additionalProperties": false
+      }
+    },
+    {
+      "name": "send-subscribe-event",
+      "displayName": "Send Subscribe Event",
+      "libPath": "src/lib/actions/sendSubscribeEvent.js",
+      "viewPath": "actions/sendSubscribeEvent.html",
       "schema": {
         "$schema": "http://json-schema.org/draft-04/schema#",
         "type": "object",
