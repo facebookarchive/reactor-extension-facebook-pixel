@@ -6,8 +6,8 @@
   "iconPath": "resources/icons/meta.svg",
   "platform": "web",
   "author": {
-    "name": "Meta",
-    "url": "https://developers.facebook.com/support/"
+    "name": "Adobe Systems",
+    "url": "http://adobe.com"
   },
   "configuration": {
     "viewPath": "configuration/configuration.html",
