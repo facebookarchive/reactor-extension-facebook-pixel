@@ -6,8 +6,9 @@
   "iconPath": "resources/icons/meta.svg",
   "platform": "web",
   "author": {
-    "name": "Adobe Systems",
-    "url": "http://adobe.com"
+    "name": "Adobe",
+    "url": "http://adobe.com",
+    "email": "reactor@adobe.com"
   },
   "configuration": {
     "viewPath": "configuration/configuration.html",
