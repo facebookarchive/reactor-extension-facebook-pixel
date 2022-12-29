@@ -1,4 +1,4 @@
-export default (values) => {
+export default () => {
   const errors = {};
   return errors;
 };

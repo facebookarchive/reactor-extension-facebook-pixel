@@ -10,7 +10,8 @@ describe('Send Search Event module', function () {
   setupTests.setup();
 
   test('add call to facebook queue', function () {
-    sendSearchEvent({ searchString: 'search' });
+    // eslint-disable-next-line camelcase
+    sendSearchEvent({ search_string: 'search' });
     expect(getFbQueue.mock.calls[0]).toEqual([
       'track',
       'Search',
@@ -21,7 +22,8 @@ describe('Send Search Event module', function () {
   });
 
   test('logs message to turbine', function () {
-    sendSearchEvent({ searchString: 'search' });
+    // eslint-disable-next-line camelcase
+    sendSearchEvent({ search_string: 'search' });
     expect(turbine.logger.log.mock.calls[0]).toEqual([
       'Queue command: fbq("track", "Search", {"search_string":"search"})' +
         ` with eventId: ${setupTests.mockEventId}.`

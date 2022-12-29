@@ -10,7 +10,7 @@ describe('Send Add Payment Info Event module', function () {
   setupTests.setup();
 
   test('add call to facebook queue', function () {
-    sendAddPaymentInfoEvent();
+    sendAddPaymentInfoEvent({});
     expect(getFbQueue.mock.calls[0]).toEqual([
       'track',
       'AddPaymentInfo',

@@ -10,7 +10,7 @@ describe('Send Initiate Checkout Event module', function () {
   setupTests.setup();
 
   test('add call to facebook queue', function () {
-    sendInitiateCheckoutEvent();
+    sendInitiateCheckoutEvent({});
     expect(getFbQueue.mock.calls[0]).toEqual([
       'track',
       'InitiateCheckout',
@@ -20,7 +20,7 @@ describe('Send Initiate Checkout Event module', function () {
   });
 
   test('logs message to turbine', function () {
-    sendInitiateCheckoutEvent();
+    sendInitiateCheckoutEvent({});
     expect(turbine.logger.log.mock.calls[0]).toEqual([
       `Queue command: fbq("track", "InitiateCheckout") with eventId: ${setupTests.mockEventId}.`
     ]);
