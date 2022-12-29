@@ -1,7 +1,8 @@
+/* eslint-disable camelcase */
 export default (initInfo) => {
-const { settings } = initInfo;
-const {
-  value = '',
+  const { settings } = initInfo;
+  const {
+    value = '',
     currency = '',
     content_category = '',
     content_ids = '',
@@ -9,7 +10,7 @@ const {
     contents = '',
     num_items = '',
     status = ''
-} =  settings || {}
+  } = settings || {};
   return {
     value,
     currency,

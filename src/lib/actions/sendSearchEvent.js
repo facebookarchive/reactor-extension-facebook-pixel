@@ -10,7 +10,7 @@ module.exports = function (settings) {
   });
   turbine.logger.log(
     `Queue command: fbq("track", "Search", ${JSON.stringify(
-      options
+      settings
     )}) with eventId: ${eventId}.`
   );
 };
